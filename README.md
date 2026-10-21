@@ -1,5 +1,7 @@
 # QA Automation Portfolio
 
+![Playwright Tests](https://github.com/dwhytan/qa-automation-portfolio/actions/workflows/playwright.yml/badge.svg)
+
 End-to-end test automation framework built with Playwright and TypeScript, integrated with GitHub Actions CI/CD.
 
 ## Tech Stack
