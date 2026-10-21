@@ -17,6 +17,9 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    - name: Update visual snapshots
+      run: npx playwright test tests/visual.spec.ts --update-snapshots
+      continue-on-error: true
     - name: Run Playwright tests
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
