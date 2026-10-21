@@ -18,7 +18,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Update visual snapshots
-      run: npx playwright test tests/visual.spec.ts --update-snapshots
+      run: npx playwright test tests/visual.spec.ts tests/mobile.spec.ts --update-snapshots
       continue-on-error: true
     - name: Run Playwright tests
       env:
