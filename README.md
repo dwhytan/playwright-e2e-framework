@@ -4,6 +4,10 @@
 
 End-to-end test automation framework built with Playwright and TypeScript, integrated with GitHub Actions CI/CD and AI-powered failure analysis.
 
+## Live Test Report
+
+[View Allure Report](https://dwhytan.github.io/qa-automation-portfolio)
+
 ## Tech Stack
 
 - **Framework:** Playwright
@@ -11,6 +15,7 @@ End-to-end test automation framework built with Playwright and TypeScript, integ
 - **CI/CD:** GitHub Actions
 - **Reporting:** Allure Reports (with screenshots and video evidence)
 - **AI Analysis:** Google Gemini (automated failure analysis)
+- **Pattern:** Page Object Model
 - **Target:** [Sauce Demo](https://www.saucedemo.com) | [PokeAPI](https://pokeapi.co)
 
 ## Test Suites
@@ -20,8 +25,25 @@ End-to-end test automation framework built with Playwright and TypeScript, integ
 | Login | Valid/invalid credentials, empty fields | 3 |
 | Checkout | Add to cart, complete flow, remove item | 3 |
 | Inventory | Add to cart, sort products, navigate | 3 |
-| API | GET, POST, negative testing with PokeAPI | 5 |
+| API | GET, negative testing with PokeAPI | 5 |
 | AI Analysis | Automated failure analysis using Gemini AI | 1 |
+
+## Project Structure
+
+    ├── tests/
+    │   ├── login.spec.ts
+    │   ├── checkout.spec.ts
+    │   ├── inventory.spec.ts
+    │   ├── api.spec.ts
+    │   └── ai-analysis.spec.ts
+    ├── pages/
+    │   ├── LoginPage.ts
+    │   └── InventoryPage.ts
+    ├── utils/
+    │   └── aiAnalyzer.ts
+    └── .github/
+        └── workflows/
+            └── playwright.yml
 
 ## How to Run
 
@@ -45,9 +67,9 @@ npx allure open allure-report
 
 ## CI/CD
 
-Tests run automatically on every push via GitHub Actions across Chromium, Firefox and WebKit. AI-powered failure analysis runs as part of the pipeline using Google Gemini.
+Tests run automatically on every push via GitHub Actions across Chromium, Firefox and WebKit. AI-powered failure analysis runs as part of the pipeline using Google Gemini. Results are published to GitHub Pages after every run.
 
 ## Author
 
-**Davis Huaytán** — Senior QA Engineer  
+**Davis Huaytán** — Senior QA Engineer
 [LinkedIn](https://www.linkedin.com/in/davis-huaytan) | [GitHub](https://github.com/dwhytan)
