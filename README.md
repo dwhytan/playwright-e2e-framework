@@ -17,6 +17,8 @@ End-to-end test automation framework built with Playwright and TypeScript, integ
 |-------|-------------|-------|
 | Login | Valid/invalid credentials, empty fields | 3 |
 | Checkout | Add to cart, complete flow, remove item | 3 |
+| Inventory | Add to cart, sort products, navigate | 3 |
+| API | GET, POST, negative testing with PokeAPI | 5 |
 
 ## How to Run
 
