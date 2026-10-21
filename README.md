@@ -15,6 +15,10 @@ End-to-end test automation framework built with Playwright and TypeScript, integ
 - **CI/CD:** GitHub Actions
 - **Reporting:** Allure Reports (with screenshots and video evidence)
 - **AI Analysis:** Google Gemini (automated failure analysis)
+- **Accessibility:** axe-core (WCAG 2.0 AA compliance)
+- **Performance:** Core Web Vitals (FCP, LCP)
+- **Mobile:** iPhone 13, Pixel 5 viewports
+- **Contract Testing:** Consumer-driven contract principles with PokeAPI
 - **Pattern:** Page Object Model
 - **Target:** [Sauce Demo](https://www.saucedemo.com) | [PokeAPI](https://pokeapi.co)
 
@@ -26,6 +30,11 @@ End-to-end test automation framework built with Playwright and TypeScript, integ
 | Checkout | Add to cart, complete flow, remove item | 3 |
 | Inventory | Add to cart, sort products, navigate | 3 |
 | API | GET, negative testing with PokeAPI | 5 |
+| Contract | API contract validation with PokeAPI | 4 |
+| Accessibility | WCAG 2.0 AA compliance with axe-core | 3 |
+| Visual Regression | Screenshot comparison across 3 browsers | 3 |
+| Mobile | Responsive testing on iPhone 13 and Pixel 5 | 3 |
+| Performance | Core Web Vitals and page load times | 3 |
 | AI Analysis | Automated failure analysis using Gemini AI | 1 |
 
 ## Project Structure
@@ -35,6 +44,11 @@ End-to-end test automation framework built with Playwright and TypeScript, integ
     │   ├── checkout.spec.ts
     │   ├── inventory.spec.ts
     │   ├── api.spec.ts
+    │   ├── contract.spec.ts
+    │   ├── accessibility.spec.ts
+    │   ├── visual.spec.ts
+    │   ├── mobile.spec.ts
+    │   ├── performance.spec.ts
     │   └── ai-analysis.spec.ts
     ├── pages/
     │   ├── LoginPage.ts
