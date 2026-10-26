@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 
 export class LoginPage {
   constructor(private page: Page) {}
@@ -15,5 +15,16 @@ export class LoginPage {
 
   async getErrorMessage() {
     return this.page.locator('[data-test="error"]');
+  }
+
+  async verifySuccessfulLogin() {
+    await expect(this.page).toHaveURL('/inventory.html');
+    await expect(this.page.locator('.title')).toHaveText('Products');
+  }
+
+  async verifyLoginError(expectedText?: string) {
+    const error = this.page.locator('[data-test="error"]');
+    await expect(error).toBeVisible();
+    if (expectedText) await expect(error).toContainText(expectedText);
   }
 }
