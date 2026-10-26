@@ -1,1 +1,1 @@
-{"id":"704e7b61a69633ce3d53d5b868b05307.5bd835b0d6b1d4ada3b9f0db936e82c8","fullName":"api.spec.ts › API Testing - PokeAPI › GET - invalid pokemon returns 404","name":"GET - invalid pokemon returns 404","status":"passed","testResultsByEnv":{"default":"84c6cf7f61d25d534f67e4807c14aeae"}}
+{"id":"704e7b61a69633ce3d53d5b868b05307.5bd835b0d6b1d4ada3b9f0db936e82c8","fullName":"api.spec.ts › API Testing - PokeAPI › GET - invalid pokemon returns 404","name":"GET - invalid pokemon returns 404","status":"passed","testResultsByEnv":{"default":"4ee62b80803b96ab3c5cc14ce0af0855"}}

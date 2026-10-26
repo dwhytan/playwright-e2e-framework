@@ -1,0 +1,7 @@
+
+🤖 AI Analysis:
+ As a QA expert, here is the analysis of your test failure:
+
+1. **Root Cause:** The test is failing because it treats the "Epic sadface" error message as an unexpected application state, rather than an expected validation result for a locked-out user.
+2. **Suggested Fix:** Update the test assertion to verify that the specific "Epic sadface" error message appears on the screen instead of asserting that the user successfully redirects to the dashboard.
+3. **Prevention:** Implement a clear test naming convention or tagging strategy that distinguishes between "positive" success paths and "negative" validation scenarios to ensure expectations are correctly mapped.
