@@ -1,0 +1,1 @@
+{"id":"6a444fc62c779abd20e2ffc27602e7ad.b444eb0fbe6390c71e68b51dd25701fc","fullName":"api.spec.ts › API — PokeAPI › requesting a non-existent Pokémon returns 404","name":"requesting a non-existent Pokémon returns 404","status":"passed","testResultsByEnv":{"default":"4e10774097552fc2b479504d83e2cc83"}}
