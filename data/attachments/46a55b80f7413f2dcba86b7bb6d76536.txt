@@ -1,1 +1,0 @@
-A snapshot doesn't exist at /home/runner/work/qa-automation-portfolio/qa-automation-portfolio/tests/visual.spec.ts-snapshots/cart-page-chromium-linux.png, writing actual.

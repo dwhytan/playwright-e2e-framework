@@ -1,1 +1,0 @@
-A snapshot doesn't exist at /home/runner/work/qa-automation-portfolio/qa-automation-portfolio/tests/mobile.spec.ts-snapshots/login-iphone13-firefox-linux.png, writing actual.

@@ -1,0 +1,1 @@
+A snapshot doesn't exist at /home/runner/work/playwright-e2e-framework/playwright-e2e-framework/tests/mobile.spec.ts-snapshots/login-iphone13-chromium-linux.png, writing actual.

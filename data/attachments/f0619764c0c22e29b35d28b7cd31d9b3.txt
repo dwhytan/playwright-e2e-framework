@@ -1,4 +1,0 @@
-
-📊 Performance Metrics:
-FCP: 212 ms
-LCP: 304 ms
