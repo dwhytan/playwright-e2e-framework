@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 
-test.describe('Sauce Demo - Inventory', () => {
+test.describe('Inventory — Sauce Demo', () => {
 
   test.beforeEach(async ({ page }) => {
     const loginPage = new LoginPage(page);
@@ -10,23 +10,44 @@ test.describe('Sauce Demo - Inventory', () => {
     await loginPage.login('standard_user', 'secret_sauce');
   });
 
-  test('add product to cart', async ({ page }) => {
+  test('adding a product to cart updates the badge counter', async ({ page }) => {
     const inventoryPage = new InventoryPage(page);
-    await inventoryPage.addToCart('sauce-labs-backpack');
-    await expect(await inventoryPage.getCartBadge()).toHaveText('1');
+
+    await test.step('Add "Sauce Labs Backpack" to the cart', async () => {
+      await inventoryPage.addToCart('sauce-labs-backpack');
+    });
+
+    await test.step('Verify cart badge shows 1 item', async () => {
+      await expect(await inventoryPage.getCartBadge()).toHaveText('1');
+    });
   });
 
-  test('sort products by price low to high', async ({ page }) => {
+  test('sorting products by price low to high reorders the list', async ({ page }) => {
     const inventoryPage = new InventoryPage(page);
-    await inventoryPage.sortBy('lohi');
-    await expect(await inventoryPage.getFirstProductName()).toHaveText('Sauce Labs Onesie');
+
+    await test.step('Select sort option: Price (low to high)', async () => {
+      await inventoryPage.sortBy('lohi');
+    });
+
+    await test.step('Verify the first product is the cheapest (Sauce Labs Onesie)', async () => {
+      await expect(await inventoryPage.getFirstProductName()).toHaveText('Sauce Labs Onesie');
+    });
   });
 
-  test('navigate to cart', async ({ page }) => {
+  test('clicking the cart icon navigates to the cart page', async ({ page }) => {
     const inventoryPage = new InventoryPage(page);
-    await inventoryPage.addToCart('sauce-labs-backpack');
-    await inventoryPage.goToCart();
-    await expect(page).toHaveURL('https://www.saucedemo.com/cart.html');
+
+    await test.step('Add a product to the cart', async () => {
+      await inventoryPage.addToCart('sauce-labs-backpack');
+    });
+
+    await test.step('Click the cart icon', async () => {
+      await inventoryPage.goToCart();
+    });
+
+    await test.step('Verify redirect to cart page', async () => {
+      await expect(page).toHaveURL(/cart\.html/);
+    });
   });
 
 });

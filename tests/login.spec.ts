@@ -3,50 +3,50 @@ import { LoginPage } from '../pages/LoginPage';
 
 test.describe('Login — Sauce Demo', () => {
 
-  test('usuario estándar puede iniciar sesión exitosamente', async ({ page }) => {
+  test('standard user can log in successfully', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await test.step('Abrir la página de login de Sauce Demo', async () => {
+    await test.step('Open the Sauce Demo login page', async () => {
       await loginPage.goto();
     });
 
-    await test.step('Ingresar credenciales válidas de usuario estándar', async () => {
+    await test.step('Enter valid standard user credentials', async () => {
       await loginPage.login('standard_user', 'secret_sauce');
     });
 
-    await test.step('Verificar redirección al inventario de productos', async () => {
+    await test.step('Verify redirect to the product inventory page', async () => {
       await loginPage.verifySuccessfulLogin();
     });
   });
 
-  test('login falla con credenciales inválidas', async ({ page }) => {
+  test('login fails with invalid credentials', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await test.step('Abrir la página de login', async () => {
+    await test.step('Open the login page', async () => {
       await loginPage.goto();
     });
 
-    await test.step('Ingresar usuario y contraseña incorrectos', async () => {
+    await test.step('Enter incorrect username and password', async () => {
       await loginPage.login('invalid_user', 'wrong_password');
     });
 
-    await test.step('Verificar que se muestra mensaje de error de autenticación', async () => {
+    await test.step('Verify authentication error message is displayed', async () => {
       await loginPage.verifyLoginError('Username and password do not match');
     });
   });
 
-  test('login falla con campos vacíos', async ({ page }) => {
+  test('login fails when fields are empty', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await test.step('Abrir la página de login', async () => {
+    await test.step('Open the login page', async () => {
       await loginPage.goto();
     });
 
-    await test.step('Intentar login sin ingresar credenciales', async () => {
+    await test.step('Attempt login without entering any credentials', async () => {
       await loginPage.login('', '');
     });
 
-    await test.step('Verificar que se solicita el campo de usuario', async () => {
+    await test.step('Verify the username field is required', async () => {
       await loginPage.verifyLoginError('Username is required');
     });
   });
