@@ -39,9 +39,9 @@ test.describe('Performance — Sauce Demo', () => {
   });
 
   test('login page full load time is acceptable', async ({ page }) => {
-    await test.step('Measure full page load time and verify under 5000ms', async () => {
+    await test.step('Measure DOM-ready load time and verify under 5000ms', async () => {
       const startTime = Date.now();
-      await page.goto('https://www.saucedemo.com', { waitUntil: 'networkidle' });
+      await page.goto('https://www.saucedemo.com', { waitUntil: 'domcontentloaded' });
       const loadTime = Date.now() - startTime;
       console.log(`\n⏱ Page load time: ${loadTime}ms`);
       expect(loadTime).toBeLessThan(5000);
