@@ -34,6 +34,31 @@ jobs:
         mkdir -p gh-pages/allure
         cp -r playwright-report/. gh-pages/playwright/
         cp -r allure-report/. gh-pages/allure/
+    - name: Create index page for GitHub Pages
+      if: always()
+      run: |
+        cat > gh-pages/index.html << 'EOF'
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>playwright-e2e-framework — Test Reports</title>
+            <style>
+              body { font-family: sans-serif; max-width: 600px; margin: 80px auto; padding: 0 20px; }
+              h1 { font-size: 1.4rem; margin-bottom: 8px; }
+              p { color: #555; margin-bottom: 32px; }
+              a { display: inline-block; margin-right: 16px; padding: 10px 20px; background: #0969da; color: white; border-radius: 6px; text-decoration: none; }
+              a:hover { background: #0550ae; }
+            </style>
+          </head>
+          <body>
+            <h1>playwright-e2e-framework</h1>
+            <p>Automated test reports — latest CI run</p>
+            <a href="playwright/">Playwright Report</a>
+            <a href="allure/">Allure Report</a>
+          </body>
+        </html>
+        EOF
     - name: Deploy to GitHub Pages
       if: always()
       uses: peaceiris/actions-gh-pages@v3
