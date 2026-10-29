@@ -7,7 +7,7 @@ export async function analyzeTestFailure(
 ): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY || '';
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`;
 
   const prompt = `You are a QA expert. Analyze this test failure briefly.
     
@@ -27,6 +27,10 @@ Provide:
       contents: [{ parts: [{ text: prompt }] }]
     })
   });
+
+  if (!response.ok) {
+    return `Analysis unavailable (HTTP ${response.status})`;
+  }
 
   const data = await response.json() as any;
   return data.candidates?.[0]?.content?.parts?.[0]?.text || 'Analysis unavailable';

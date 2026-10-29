@@ -1,19 +1,20 @@
-# QA Automation Portfolio
+# playwright-e2e-framework
 
-![Playwright Tests](https://github.com/dwhytan/qa-automation-portfolio/actions/workflows/playwright.yml/badge.svg)
+![Playwright Tests](https://github.com/dwhytan/playwright-e2e-framework/actions/workflows/playwright.yml/badge.svg)
 
 End-to-end test automation framework built with Playwright and TypeScript, integrated with GitHub Actions CI/CD and AI-powered failure analysis.
 
-## Live Test Report
+## Live Test Reports
 
-[View Allure Report](https://dwhytan.github.io/qa-automation-portfolio)
+- [Playwright HTML Report](https://dwhytan.github.io/playwright-e2e-framework/playwright/)
+- [Allure Report](https://dwhytan.github.io/playwright-e2e-framework/allure/)
 
 ## Tech Stack
 
 - **Framework:** Playwright
 - **Language:** TypeScript
 - **CI/CD:** GitHub Actions
-- **Reporting:** Allure Reports (with screenshots and video evidence)
+- **Reporting:** Playwright HTML + Allure Reports (screenshots, video, traces)
 - **AI Analysis:** Google Gemini (automated failure analysis)
 - **Accessibility:** axe-core (WCAG 2.0 AA compliance)
 - **Performance:** Core Web Vitals (FCP, LCP)
@@ -66,17 +67,19 @@ End-to-end test automation framework built with Playwright and TypeScript, integ
 npm install
 
 # Run all tests
-npx playwright test
+npm test
+
+# Run with UI mode
+npm run test:ui
 
 # Run specific suite
 npx playwright test tests/login.spec.ts
 
-# Run with UI mode
-npx playwright test --ui
+# Open Playwright HTML report
+npm run report:html
 
-# Generate Allure report
-npx allure generate allure-results --clean -o allure-report
-npx allure open allure-report
+# Generate and open Allure report
+npm run report:allure
 ```
 
 ## CI/CD
@@ -85,5 +88,5 @@ Tests run automatically on every push via GitHub Actions across Chromium, Firefo
 
 ## Author
 
-**Davis Huaytán** — Senior QA Engineer
+**Davis Huaytán** — Senior QA Engineer  
 [LinkedIn](https://www.linkedin.com/in/davis-huaytan) | [GitHub](https://github.com/dwhytan)
