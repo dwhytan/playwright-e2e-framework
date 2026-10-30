@@ -198,4 +198,43 @@ test.describe('PeruRail — Train search', () => {
     });
   });
 
+  test('PR-011 sorting by departure time orders trains chronologically', async ({ page }) => {
+    const trains = page.locator('.row-desktop-trenes').filter({ visible: true });
+    let trainCount = 0;
+
+    // After "Apply" the list is emptied and drawn again, so we wait until every train is back
+    async function sortBy(option: string) {
+      await page.getByRole('button', { name: 'Sort by' }).click();
+      await page.getByText(option, { exact: true }).click();
+      await page.getByRole('button', { name: 'Apply', exact: true }).click();
+      await expect(trains).toHaveCount(trainCount);
+    }
+
+    await test.step('Search a one-way trip from Cusco to Machu Picchu', async () => {
+      await page.getByText('One Way', { exact: true }).click();
+      await pickOption(page, 'Filtros_Ida_Destino', 'MachuPicchu');
+      await page.locator('#btnSiguiente').click();
+      await expect(trains.first()).toBeVisible();
+      trainCount = await trains.count();
+      expect(trainCount).toBeGreaterThan(1);
+    });
+
+    // Results already come in departure order, so we first sort by another option to see the sort really work
+    await test.step('Sort by fastest train: durations go from shortest to longest', async () => {
+      await sortBy('Faster');
+      const durations = (await trains.locator('.texto133').allTextContents()).map(text => {
+        const [hours, minutes] = text.match(/\d+/g)!.map(Number);
+        return hours * 60 + minutes;
+      });
+      expect(durations).toEqual([...durations].sort((a, b) => a - b));
+    });
+
+    await test.step('Sort by departure time: trains go from earliest to latest', async () => {
+      await sortBy('Departure time');
+      const times = (await trains.locator('.listado18:first-child .texto128').allTextContents()).map(time => time.trim());
+      // "HH:MM" times sort correctly as plain text
+      expect(times).toEqual([...times].sort());
+    });
+  });
+
 });
