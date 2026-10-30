@@ -25,6 +25,9 @@ const currentMonthInPeru = new Intl.DateTimeFormat('en-US', { timeZone: 'America
 // "30/10/2026" -> "20261030", so two dates can be compared as plain text
 const sortable = (date: string) => date.split('/').reverse().join('');
 
+// "07:40" -> 460 minutes after midnight
+const minutesOfDay = (time: string) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5));
+
 test.describe('PeruRail — Train search', () => {
 
   test.beforeEach(async ({ page }) => {
@@ -167,6 +170,30 @@ test.describe('PeruRail — Train search', () => {
         const listPrice = Number((await fare.locator('.texto145').textContent())!.replace('USD', ''));
         // Working in cents avoids rounding errors: 89 x 95 = 8455 cents = 84.55
         expect.soft(onlinePrice, `fare listed at USD ${listPrice}`).toBe(Math.round(listPrice * 95) / 100);
+      }
+    });
+  });
+
+  test('PR-010 each train duration equals arrival minus departure', async ({ page }) => {
+    const trains = page.locator('.row-desktop-trenes').filter({ visible: true });
+
+    await test.step('Search a one-way trip from Cusco to Machu Picchu', async () => {
+      await page.getByText('One Way', { exact: true }).click();
+      await pickOption(page, 'Filtros_Ida_Destino', 'MachuPicchu');
+      await page.locator('#btnSiguiente').click();
+      await expect(trains.first()).toBeVisible();
+    });
+
+    await test.step('Verify the duration shown for every train', async () => {
+      // Each train shows departure time, duration and arrival time, e.g. "03:20", "4 hr. 20 min", "07:40"
+      for (const train of await trains.all()) {
+        const departure = (await train.locator('.texto128').first().textContent())!.trim();
+        const arrival = (await train.locator('.texto128').last().textContent())!.trim();
+        const duration = (await train.locator('.texto133').textContent())!.trim();
+
+        const minutes = minutesOfDay(arrival) - minutesOfDay(departure);
+        const expected = `${Math.floor(minutes / 60)} hr. ${minutes % 60} min`;
+        expect.soft(duration, `train leaving at ${departure}`).toBe(expected);
       }
     });
   });
