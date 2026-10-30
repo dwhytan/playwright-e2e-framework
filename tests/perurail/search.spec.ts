@@ -150,4 +150,25 @@ test.describe('PeruRail — Train search', () => {
     });
   });
 
+  test('PR-009 round-trip online price is the list price minus 5%', async ({ page }) => {
+    const fares = page.locator('.precios11').filter({ visible: true });
+
+    await test.step('Search a round trip from Cusco to Machu Picchu', async () => {
+      await page.getByText('Round Trip', { exact: true }).click();
+      await pickOption(page, 'Filtros_Ida_Destino', 'MachuPicchu');
+      await page.locator('#btnSiguiente').click();
+      await expect(fares.first()).toBeVisible();
+    });
+
+    await test.step('Verify every fare shows the list price with 5% off', async () => {
+      // Each fare shows the online price in bold and the list price below it, e.g. "USD 84.55" and "USD 89"
+      for (const fare of await fares.all()) {
+        const onlinePrice = Number(await fare.locator('.span32').textContent());
+        const listPrice = Number((await fare.locator('.texto145').textContent())!.replace('USD', ''));
+        // Working in cents avoids rounding errors: 89 x 95 = 8455 cents = 84.55
+        expect.soft(onlinePrice, `fare listed at USD ${listPrice}`).toBe(Math.round(listPrice * 95) / 100);
+      }
+    });
+  });
+
 });
