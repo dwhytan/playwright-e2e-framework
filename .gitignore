@@ -1,12 +1,14 @@
-
-# Playwright
+# Dependencies
 node_modules/
+
+# Test output (regenerated on every run)
 /test-results/
 /playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
+/allure-results/
+/allure-report/
+
+# Secrets (GEMINI_API_KEY)
 .env
-allure-results
-allure-report
+
+# macOS
 .DS_Store
