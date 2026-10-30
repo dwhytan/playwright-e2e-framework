@@ -80,7 +80,7 @@ High risks (6) are automated first.
 | PR-005 | Destination list depends on the selected origin | Decision table | R6 | |
 | PR-006 | Passenger total: 11 is accepted, 12 is rejected | Boundary value analysis | R3 | |
 | PR-007 | Adult, child and infant age categories are offered | Equivalence partitioning | R3 | |
-| PR-008 | Earliest bookable date is tomorrow; today and past dates are disabled | Boundary value analysis | R4 | |
+| PR-008 | Past dates are disabled and the default date is not in the past | Boundary value analysis | R4 | |
 | PR-009 | Online price equals the list price with the observed 5% discount | Business rule | R2 | |
 | PR-010 | Each train's duration equals arrival minus departure | Business rule | R5 | |
 | PR-011 | Sorting by departure time orders trains chronologically | Use case | R5 | |

@@ -18,6 +18,13 @@ const destinationsByOrigin: Record<string, string[]> = {
   'Arequipa': ['City of Cusco', 'Puno'],
 };
 
+// Dates on PeruRail use dd/mm/yyyy in Peru's time zone
+const todayInPeru = new Intl.DateTimeFormat('en-GB', { timeZone: 'America/Lima' }).format(new Date());
+const currentMonthInPeru = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Lima', month: 'long', year: 'numeric' }).format(new Date());
+
+// "30/10/2026" -> "20261030", so two dates can be compared as plain text
+const sortable = (date: string) => date.split('/').reverse().join('');
+
 test.describe('PeruRail — Train search', () => {
 
   test.beforeEach(async ({ page }) => {
@@ -110,6 +117,37 @@ test.describe('PeruRail — Train search', () => {
         await expect.soft(page.locator('#Filtros_Ida_Destino option')).toHaveText(['[Seleccionar]', ...destinations]);
       });
     }
+  });
+
+  test('PR-008 past dates cannot be selected', async ({ page }) => {
+    const departure = page.locator('#Filtros_Ida_Fecha');
+    const calendar = page.locator('.datepicker-days').filter({ visible: true });
+    const calendarTitle = calendar.locator('.datepicker-switch');
+
+    await test.step('Verify the default departure date is not in the past', async () => {
+      const defaultDate = await departure.inputValue();
+      expect(sortable(defaultDate) >= sortable(todayInPeru)).toBe(true);
+    });
+
+    await test.step('Open the calendar on the current month', async () => {
+      await departure.click();
+      await expect(calendar).toBeVisible();
+      // Near the end of a month the calendar may open on the next one (textContent ignores the CSS uppercase)
+      if ((await calendarTitle.textContent()) !== currentMonthInPeru) {
+        await calendar.locator('.prev').click();
+      }
+      await expect(calendarTitle).toHaveText(currentMonthInPeru);
+    });
+
+    await test.step('Verify every day before today is disabled', async () => {
+      const today = Number(todayInPeru.slice(0, 2));
+      const daysOfThisMonth = calendar.locator('td.day:not(.old):not(.new)');
+      for (const day of await daysOfThisMonth.all()) {
+        if (Number(await day.innerText()) < today) {
+          await expect(day).toHaveClass(/disabled/);
+        }
+      }
+    });
   });
 
 });
