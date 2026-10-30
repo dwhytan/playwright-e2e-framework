@@ -1,2 +1,0 @@
-
-⏱ Inventory load time: 192ms
