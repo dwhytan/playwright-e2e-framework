@@ -63,7 +63,7 @@ Likelihood and impact are rated 1 (low) to 3 (high). Risk = Likelihood × Impact
 | R7 | UI breaks when a back-end call fails | 2 | 2 | 4 | PR-014 |
 | R8 | Foreign users see untranslated content | 3 | 2 | **6** | PR-012 |
 | R9 | Users with disabilities cannot book | 3 | 2 | **6** | PR-013 |
-| R10 | Session expiry is not handled clearly | 2 | 2 | 4 | PR-015 |
+| R10 | Session expiry is not handled clearly | 2 | 2 | 4 | PR-015, PR-019 |
 | R11 | Layout breaks on mobile devices | 2 | 2 | 4 | PR-016 |
 | R12 | Slow pages or front-end errors hurt conversion | 2 | 2 | 4 | PR-017, PR-018 |
 
@@ -91,8 +91,9 @@ High risks (6) are automated first.
 | PR-016 | Search form is usable on iPhone and Android viewports | Device emulation | R11 | @mobile |
 | PR-017 | Search page loads within the performance budget | Performance budget | R12 | @perf |
 | PR-018 | Search page logs no JavaScript errors | Console monitoring | R12 | |
+| PR-019 | The session warning announces the real time left | Clock control | R10 | |
 
-Known defects found during exploration (for example in PR-012, PR-013 and PR-018) are kept
+Known defects found during exploration (for example in PR-012, PR-013, PR-014 and PR-019) are kept
 as tests marked with `test.fail()`, so the suite stays green while the defect is visible in the report.
 When PeruRail fixes it, the test will "unexpectedly pass" and tell us.
 
