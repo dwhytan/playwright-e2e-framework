@@ -89,7 +89,7 @@ High risks (6) are automated first.
 | PR-014 | Search still works when the calendar service fails | Network mocking | R7 | |
 | PR-015 | The user is warned before the session expires | Clock control | R10 | |
 | PR-016 | Search form is usable on iPhone and Android viewports | Device emulation | R11 | @mobile |
-| PR-017 | Search page loads within the performance budget | Performance budget | R12 | @perf |
+| PR-017 | Search page and trains list load within the performance budget | Performance budget | R12 | @perf |
 | PR-018 | Search page logs no JavaScript errors | Console monitoring | R12 | |
 | PR-019 | The session warning announces the real time left | Clock control | R10 | |
 
