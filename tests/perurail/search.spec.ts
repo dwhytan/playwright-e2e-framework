@@ -28,6 +28,16 @@ const sortable = (date: string) => date.split('/').reverse().join('');
 // "07:40" -> 460 minutes after midnight
 const minutesOfDay = (time: string) => Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5));
 
+// Spanish text seen on the English pages during exploration (PR-012).
+// A Spanish date is spotted by its lowercase month, e.g. "Sáb 31 oct" instead of "Sat 31 Oct"
+const spanishText = [/Sesión/, /adultos/, /\b(Lun|Mar|Mié|Jue|Vie|Sáb|Dom) \d{1,2} [a-z]{3}\b/];
+
+// Returns the Spanish text found on the page, e.g. ["Sesión", "adultos"], or [] if there is none
+async function findSpanishText(page: Page) {
+  const pageText = await page.locator('body').innerText();
+  return spanishText.map(pattern => pageText.match(pattern)?.[0]).filter(Boolean);
+}
+
 test.describe('PeruRail — Train search', () => {
 
   test.beforeEach(async ({ page }) => {
@@ -234,6 +244,24 @@ test.describe('PeruRail — Train search', () => {
       const times = (await trains.locator('.listado18:first-child .texto128').allTextContents()).map(time => time.trim());
       // "HH:MM" times sort correctly as plain text
       expect(times).toEqual([...times].sort());
+    });
+  });
+
+  test('PR-012 English version shows no Spanish text', async ({ page }) => {
+    test.fail(true, 'Known defect: the English version still shows Spanish text and declares lang="es"');
+
+    await test.step('Search page is fully in English', async () => {
+      await expect(page.getByText(/\d+ adult/)).toBeVisible();
+      // Read once instead of a retrying assertion, so a wrong value fails at once instead of after 15 s
+      expect.soft(await page.locator('html').getAttribute('lang')).toBe('en');
+      expect.soft(await findSpanishText(page)).toEqual([]);
+    });
+
+    await test.step('Results page is fully in English', async () => {
+      await pickOption(page, 'Filtros_Ida_Destino', 'MachuPicchu');
+      await page.locator('#btnSiguiente').click();
+      await expect(page.locator('.row-desktop-trenes').first()).toBeVisible();
+      expect.soft(await findSpanishText(page)).toEqual([]);
     });
   });
 
