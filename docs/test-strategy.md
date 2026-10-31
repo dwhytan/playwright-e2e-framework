@@ -90,10 +90,10 @@ High risks (6) are automated first.
 | PR-015 | The user is warned before the session expires | Clock control | R10 | |
 | PR-016 | Search form is usable on iPhone and Android viewports | Device emulation | R11 | @mobile |
 | PR-017 | Search page and trains list load within the performance budget | Performance budget | R12 | @perf |
-| PR-018 | Search page logs no JavaScript errors | Console monitoring | R12 | |
+| PR-018 | The search flow throws no JavaScript errors | Console monitoring | R12 | |
 | PR-019 | The session warning announces the real time left | Clock control | R10 | |
 
-Known defects found during exploration (for example in PR-012, PR-013, PR-014 and PR-019) are kept
+Known defects found during exploration (PR-012, PR-013, PR-014, PR-018 and PR-019) are kept
 as tests marked with `test.fail()`, so the suite stays green while the defect is visible in the report.
 When PeruRail fixes it, the test will "unexpectedly pass" and tell us.
 
