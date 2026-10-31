@@ -86,7 +86,7 @@ High risks (6) are automated first.
 | PR-011 | Sorting by departure time orders trains chronologically | Use case | R5 | |
 | PR-012 | English version shows no Spanish text | i18n check | R8 | |
 | PR-013 | Search and results pages have no critical accessibility violations | axe-core scan | R9 | @a11y |
-| PR-014 | A failing calendar request is handled without breaking the page | Network mocking | R7 | |
+| PR-014 | Search still works when the calendar service fails | Network mocking | R7 | |
 | PR-015 | The user is warned before the session expires | Clock control | R10 | |
 | PR-016 | Search form is usable on iPhone and Android viewports | Device emulation | R11 | @mobile |
 | PR-017 | Search page loads within the performance budget | Performance budget | R12 | @perf |
