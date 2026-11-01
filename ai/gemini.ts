@@ -1,7 +1,8 @@
 import 'dotenv/config';
 
-// "latest" always points to Google's current Flash model, so the project does not depend on a version
-const MODEL = 'gemini-flash-latest';
+// "latest" always points to Google's current Flash-Lite model, so the project does not depend on a version.
+// Flash-Lite has a much larger free daily quota than Flash, which allows only 20 answers per day
+const MODEL = 'gemini-flash-lite-latest';
 const EMBEDDING_MODEL = 'gemini-embedding-001';
 const API = 'https://generativelanguage.googleapis.com/v1beta/models';
 
