@@ -14,6 +14,8 @@ export default defineConfig({
   reporter: [
     ['html'],
     ['list'],
+    // Machine-readable results, read by the AI failure triage (npm run ai:triage)
+    ['json', { outputFile: 'test-results/results.json' }],
     ['allure-playwright', { outputFolder: 'allure-results' }]
   ],
   use: {
