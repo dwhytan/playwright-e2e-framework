@@ -5,7 +5,7 @@ The test plan behind these findings is in [test-strategy.md](test-strategy.md).
 
 | | |
 |---|---|
-| **Site** | book.perurail.com, English version (`?tipoIdioma=1`) |
+| **Site** | book.perurail.com, English version (`?tipoIdioma=1`), and the policy pages of www.perurail.com read by the AI assistant |
 | **Browsers** | Firefox and WebKit (desktop), iPhone 13 emulation, Android screen size |
 | **Period** | October 2026 |
 | **Scope** | Search form and trains list only. Nothing was booked and no personal data was entered |
@@ -17,7 +17,7 @@ Findings describe what we observed on those dates. The site may have changed sin
 | Type | Count |
 |---|---|
 | Defects covered by a test | 5 |
-| Minor defects without a test | 5 |
+| Minor defects without a test | 7 |
 | Questions for the business | 4 |
 
 **Severity scale:** **High** blocks or excludes a group of users. **Medium** misleads the user or
@@ -81,6 +81,11 @@ error has no visible effect, but it is an unhandled exception in a normal user a
 | M3 | While the page loads, the departure date changes several times (today, tomorrow, a date in 2031, tomorrow). A search started at that moment could use the wrong date | Search page |
 | M4 | Only clicks count as activity for the session timer: a user who reads, scrolls or uses the keyboard gets the expiry warning | Whole site |
 | M5 | If renewing the session fails, the error handler itself throws an error, because it uses variables that do not exist | Session warning |
+| M6 | The included luggage is described in two different ways: 1 bag or backpack up to 8 kg and 115 cm, or 1 backpack up to 8 kg and 100 cm or 1 carry-on bag up to 12 kg and 115 cm. A traveller cannot know which rule applies | www.perurail.com luggage page and FAQ |
+| M7 | Spanish text on the English luggage page: "01 Mochila o equipaje de mano" | www.perurail.com luggage page |
+
+M6 and M7 were found by the AI assistant (`npm run ai:ask`): asked about the luggage allowance,
+it answered that its sources disagree, and the pages confirmed it.
 
 ## Questions for the business
 
