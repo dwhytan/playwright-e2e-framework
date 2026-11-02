@@ -1,0 +1,709 @@
+[
+  {
+    "id": "aria-input-field-name",
+    "impact": "serious",
+    "tags": [
+      "cat.aria",
+      "wcag2a",
+      "wcag412",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+    ],
+    "description": "Ensure every ARIA input field has an accessible name",
+    "help": "ARIA input fields must have an accessible name",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-input-field-name?application=playwright",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "serious",
+            "message": "Element has no title attribute"
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "serious",
+        "html": "<span class=\"select2-selection select2-selection--single\" role=\"combobox\" aria-autocomplete=\"list\" aria-haspopup=\"true\" aria-expanded=\"false\" tabindex=\"0\" aria-labelledby=\"select2-Filtros_Ida_Destino-container\">",
+        "target": [
+          "#divdestino > .row > .col-xs-12 > .row > .col-xs-10 > div > div:nth-child(2) > .select2.select2-container.select2-container--bootstrap > .selection > .select2-selection.select2-selection--single[aria-autocomplete=\"list\"]"
+        ],
+        "failureSummary": "Fix any of the following:\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+      }
+    ]
+  },
+  {
+    "id": "button-name",
+    "impact": "critical",
+    "tags": [
+      "cat.name-role-value",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT6.a",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.9.1"
+    ],
+    "description": "Ensure buttons have discernible text",
+    "help": "Buttons must have discernible text",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/button-name?application=playwright",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "button-has-visible-text",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have inner text that is visible to screen readers"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "emptyAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has an empty title attribute"
+          },
+          {
+            "id": "implicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "id": "explicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an explicit <label>"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<button type=\"button\" class=\"btn dropdown-toggle btn-default\" data-toggle=\"dropdown\" role=\"button\" aria-labelledby=\"undefined\" data-id=\"ddlang\" title=\"\">",
+        "target": [
+          ".dropdown-toggle"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has an empty title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      },
+      {
+        "any": [
+          {
+            "id": "button-has-visible-text",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have inner text that is visible to screen readers"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "implicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "id": "explicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an explicit <label>"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<button id=\"btnSiguiente\" class=\"btn btn-lg cierra-btn bold uppercase margin-bottom-10 btn-buscar-custom\" type=\"submit\" name=\"actionButton\" value=\"siguiente_Trenes\">\n                                    <span id=\"lblbuscarahora\"></span>\n                                </button>",
+        "target": [
+          "#btnSiguiente"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      }
+    ]
+  },
+  {
+    "id": "image-alt",
+    "impact": "critical",
+    "tags": [
+      "cat.text-alternatives",
+      "wcag2a",
+      "wcag111",
+      "section508",
+      "section508.22.a",
+      "TTv5",
+      "TT7.a",
+      "TT7.b",
+      "EN-301-549",
+      "EN-9.1.1.1",
+      "ACT",
+      "RGAAv4",
+      "RGAA-1.1.1"
+    ],
+    "description": "Ensure <img> elements have alternative text or a role of none or presentation",
+    "help": "Images must have alternative text",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/image-alt?application=playwright",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "has-alt",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an alt attribute"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<img src=\"/Images/esp-30x30.png\" data-id=\"ES\">",
+        "target": [
+          ":root"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      },
+      {
+        "any": [
+          {
+            "id": "has-alt",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an alt attribute"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<img id=\"desktopmap\" src=\"/Images/desktop-mapa-rutas-es.webp\" class=\"img-responsive\">",
+        "target": [
+          "#desktopmap"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have an alt attribute\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      }
+    ]
+  },
+  {
+    "id": "label",
+    "impact": "critical",
+    "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+    ],
+    "description": "Ensure every form element has a label",
+    "help": "Form elements must have labels",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/label?application=playwright",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "implicit-label",
+            "data": {
+              "implicitLabel": ""
+            },
+            "relatedNodes": [
+              {
+                "html": "<label id=\"lblRoundTrip\" class=\"btn btn-default active\">\n                                            <input checked=\"True\" class=\"Filtros_ViajeTipo_RT\" id=\"Filtros_ViajeTipo\" name=\"Filtros.ViajeTipo\" type=\"radio\" value=\"1\"> <label id=\"lblrt\"></label>\n                                        </label>",
+                "target": [
+                  "#lblRoundTrip"
+                ]
+              }
+            ],
+            "impact": "critical",
+            "message": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "id": "explicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an explicit <label>"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "non-empty-placeholder",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no placeholder attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<input checked=\"True\" class=\"Filtros_ViajeTipo_RT\" id=\"Filtros_ViajeTipo\" name=\"Filtros.ViajeTipo\" type=\"radio\" value=\"1\">",
+        "target": [
+          ".Filtros_ViajeTipo_RT"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      },
+      {
+        "any": [
+          {
+            "id": "implicit-label",
+            "data": {
+              "implicitLabel": ""
+            },
+            "relatedNodes": [
+              {
+                "html": "<label id=\"lblOneWay\" class=\"btn btn-default\">\n                                            <input class=\"Filtros_ViajeTipo_OW\" id=\"Filtros_ViajeTipo\" name=\"Filtros.ViajeTipo\" type=\"radio\" value=\"0\"> <label id=\"lblow\"></label>\n                                        </label>",
+                "target": [
+                  "#lblOneWay"
+                ]
+              }
+            ],
+            "impact": "critical",
+            "message": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "id": "explicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an explicit <label>"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "non-empty-placeholder",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no placeholder attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<input class=\"Filtros_ViajeTipo_OW\" id=\"Filtros_ViajeTipo\" name=\"Filtros.ViajeTipo\" type=\"radio\" value=\"0\">",
+        "target": [
+          ".Filtros_ViajeTipo_OW"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      },
+      {
+        "any": [
+          {
+            "id": "implicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "id": "explicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an explicit <label>"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "non-empty-placeholder",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no placeholder attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<input class=\"fechas-paso1 form-control\" id=\"Filtros_Ida_Fecha\" name=\"Filtros.Ida_Fecha\" readonly=\"True\" required=\"required\" type=\"text\" value=\"01/11/2026\" aria-required=\"true\">",
+        "target": [
+          "#Filtros_Ida_Fecha"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      },
+      {
+        "any": [
+          {
+            "id": "implicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "id": "explicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an explicit <label>"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "non-empty-placeholder",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no placeholder attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<input class=\"fechas-paso1 form-control\" id=\"Filtros_Retorno_Fecha\" name=\"Filtros.Retorno_Fecha\" readonly=\"True\" required=\"required\" type=\"text\" value=\"01/11/2026\" aria-required=\"true\">",
+        "target": [
+          "#Filtros_Retorno_Fecha"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element has no placeholder attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      }
+    ]
+  },
+  {
+    "id": "select-name",
+    "impact": "critical",
+    "tags": [
+      "cat.forms",
+      "wcag2a",
+      "wcag412",
+      "section508",
+      "section508.22.n",
+      "TTv5",
+      "TT5.c",
+      "EN-301-549",
+      "EN-9.4.1.2",
+      "ACT",
+      "RGAAv4",
+      "RGAA-11.1.1"
+    ],
+    "description": "Ensure select element has an accessible name",
+    "help": "Select element must have an accessible name",
+    "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/select-name?application=playwright",
+    "nodes": [
+      {
+        "any": [
+          {
+            "id": "implicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "id": "explicit-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element does not have an explicit <label>"
+          },
+          {
+            "id": "aria-label",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-label attribute does not exist or is empty"
+          },
+          {
+            "id": "aria-labelledby",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty"
+          },
+          {
+            "id": "non-empty-title",
+            "data": {
+              "messageKey": "noAttr"
+            },
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element has no title attribute"
+          },
+          {
+            "id": "presentational-role",
+            "data": null,
+            "relatedNodes": [],
+            "impact": "critical",
+            "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ],
+        "all": [],
+        "none": [],
+        "impact": "critical",
+        "html": "<select id=\"ddlang\" name=\"ddlang\" class=\"selectpicker\" tabindex=\"-98\">",
+        "target": [
+          "#ddlang"
+        ],
+        "failureSummary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+      }
+    ]
+  }
+]

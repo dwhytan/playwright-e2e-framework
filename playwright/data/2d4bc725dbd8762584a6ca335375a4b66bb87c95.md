@@ -1,0 +1,410 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: perurail/javascript-errors.spec.ts >> PeruRail — JavaScript errors >> PR-018 the search flow throws no JavaScript errors
+- Location: tests/perurail/javascript-errors.spec.ts:5:7
+
+# Error details
+
+```
+Error: expect(received).toEqual(expected) // deep equality
+
+- Expected  - 1
++ Received  + 5
+
+- Array []
++ Array [
++   "E.toFixed is not a function. (In 'E.toFixed(B.decimals)', 'E.toFixed' is undefined)",
++   "/h.clarity.ms/collect due to access control checks.",
++   "/h.clarity.ms/collect due to access control checks.",
++ ]
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e3]:
+    - generic [ref=f3e5]:
+      - img "PeruRail Ecommerce" [ref=f3e7]
+      - generic [ref=f3e8]:
+        - text: "Sesión: #26262816"
+        - generic [ref=f3e10]:
+          - button "" [ref=f3e11] [cursor=pointer]
+          - text:     
+          - combobox [ref=f3e15]:
+            - option "Inglés" [selected]
+            - option "Español"
+            - option "Portugués"
+            - option "Francés"
+            - option "Alemán"
+  - generic [ref=f3e16]:
+    - generic [ref=f3e18]:
+      - generic [ref=f3e19]:
+        - generic [ref=f3e20]: "1"
+        - generic [ref=f3e21]: SEARCH
+      - generic [ref=f3e23]:
+        - generic [ref=f3e24]: "2"
+        - generic [ref=f3e25]: TRAINS
+      - generic [ref=f3e27]:
+        - generic [ref=f3e28]: "3"
+        - generic [ref=f3e29]: PASSENGERS DATA
+      - generic [ref=f3e31]:
+        - generic [ref=f3e32]: "4"
+        - generic [ref=f3e33]: CONFIRMATION AND PAYMENT
+    - generic [ref=f3e39]:
+      - text:  
+      - generic [ref=f3e42]:
+        - generic [ref=f3e44]:
+          - generic [ref=f3e45]:
+            - generic [ref=f3e46]: City of Cusco <-> MachuPicchu
+            - generic [ref=f3e47]: Lun 02 nov - Lun 02 nov
+          - generic [ref=f3e48]: "1"
+        - text:   
+        - generic [ref=f3e52]:
+          - generic [ref=f3e54]:
+            - generic [ref=f3e55]:
+              - generic [ref=f3e56]: Select Outbound
+              - generic [ref=f3e57]: City of Cusco > MachuPicchu
+            - generic [ref=f3e59]:
+              - button "Sort by" [ref=f3e61] [cursor=pointer]
+              - button "Train Type" [ref=f3e64] [cursor=pointer]
+              - button "Trip Type" [ref=f3e67] [cursor=pointer]
+              - button "Departure Time" [ref=f3e70] [cursor=pointer]
+              - button "Prices" [ref=f3e73] [cursor=pointer]
+          - generic [ref=f3e75]:
+            - button [ref=f3e76] [cursor=pointer]
+            - generic [ref=f3e77]: Sat Oct 31
+            - generic [ref=f3e79]: Sun Nov 01
+            - generic [ref=f3e81]: Mon Nov 02
+            - generic [ref=f3e83]: Tue Nov 03
+            - generic [ref=f3e85]: Wed Nov 04
+            - button [ref=f3e87] [cursor=pointer]
+          - generic [ref=f3e88]:
+            - generic [ref=f3e90]:
+              - generic [ref=f3e91]:
+                - generic [ref=f3e92]:
+                  - generic [ref=f3e93]:
+                    - generic [ref=f3e94]:
+                      - generic [ref=f3e95]: 03:20
+                      - generic [ref=f3e96]:
+                        - generic [ref=f3e97]: Station
+                        - generic [ref=f3e100]: Wanchaq
+                    - generic [ref=f3e101]: 4 hr. 20 min
+                    - generic [ref=f3e104]:
+                      - generic [ref=f3e105]: 07:40
+                      - generic [ref=f3e107]:
+                        - generic [ref=f3e108]: Station
+                        - generic [ref=f3e111]: Machu Picchu
+                  - generic [ref=f3e112]: Bus + Train
+                - generic [ref=f3e118] [cursor=pointer]:
+                  - generic [ref=f3e119]: Expedition 81
+                  - generic [ref=f3e121]: USD 89.00
+              - generic [ref=f3e125]:
+                - generic [ref=f3e126]:
+                  - generic [ref=f3e127]:
+                    - generic [ref=f3e128]:
+                      - generic [ref=f3e129]: 04:00
+                      - generic [ref=f3e130]:
+                        - generic [ref=f3e131]: Station
+                        - generic [ref=f3e134]: Wanchaq
+                    - generic [ref=f3e135]: 5 hr. 15 min
+                    - generic [ref=f3e138]:
+                      - generic [ref=f3e139]: 09:15
+                      - generic [ref=f3e141]:
+                        - generic [ref=f3e142]: Station
+                        - generic [ref=f3e145]: Machu Picchu
+                  - generic [ref=f3e146]: Bus + Train
+                - generic [ref=f3e152] [cursor=pointer]:
+                  - generic [ref=f3e153]: Vistadome Observatory 83
+                  - generic [ref=f3e155]: USD 170.00
+              - generic [ref=f3e159]:
+                - generic [ref=f3e160]:
+                  - generic [ref=f3e161]:
+                    - generic [ref=f3e162]:
+                      - generic [ref=f3e163]: 05:10
+                      - generic [ref=f3e164]:
+                        - generic [ref=f3e165]: Station
+                        - generic [ref=f3e168]: Wanchaq
+                    - generic [ref=f3e169]: 4 hr. 5 min
+                    - generic [ref=f3e172]:
+                      - generic [ref=f3e173]: 09:15
+                      - generic [ref=f3e175]:
+                        - generic [ref=f3e176]: Station
+                        - generic [ref=f3e179]: Machu Picchu
+                  - generic [ref=f3e180]: Bus + Train
+                - generic [ref=f3e186] [cursor=pointer]:
+                  - generic [ref=f3e187]: Expedition 83P
+                  - generic [ref=f3e189]: USD 89.00
+              - generic [ref=f3e193]:
+                - generic [ref=f3e194]:
+                  - generic [ref=f3e195]:
+                    - generic [ref=f3e196]:
+                      - generic [ref=f3e197]: 05:40
+                      - generic [ref=f3e198]:
+                        - generic [ref=f3e199]: Station
+                        - generic [ref=f3e202]: Wanchaq
+                    - generic [ref=f3e203]: 4 hr. 14 min
+                    - generic [ref=f3e206]:
+                      - generic [ref=f3e207]: 09:54
+                      - generic [ref=f3e209]:
+                        - generic [ref=f3e210]: Station
+                        - generic [ref=f3e213]: Machu Picchu
+                  - generic [ref=f3e214]: Bus + Train
+                - generic [ref=f3e217]:
+                  - generic [ref=f3e220] [cursor=pointer]:
+                    - generic [ref=f3e221]: Expedition 33
+                    - generic [ref=f3e223]: USD 99.00
+                  - generic [ref=f3e228] [cursor=pointer]:
+                    - generic [ref=f3e229]: Vistadome Observatory 33
+                    - generic [ref=f3e231]: USD 170.00
+              - generic [ref=f3e234]:
+                - generic [ref=f3e235]:
+                  - generic [ref=f3e236]:
+                    - generic [ref=f3e237]:
+                      - generic [ref=f3e238]: 06:40
+                      - generic [ref=f3e239]:
+                        - generic [ref=f3e240]: Station
+                        - generic [ref=f3e243]: San Pedro
+                    - generic [ref=f3e244]: 4 hr. 12 min
+                    - generic [ref=f3e247]:
+                      - generic [ref=f3e248]: 10:52
+                      - generic [ref=f3e250]:
+                        - generic [ref=f3e251]: Station
+                        - generic [ref=f3e254]: Machu Picchu
+                  - generic [ref=f3e255]: Train
+                - generic [ref=f3e258]:
+                  - generic [ref=f3e261] [cursor=pointer]:
+                    - generic [ref=f3e262]: Expedition 31
+                    - generic [ref=f3e264]: USD 99.00
+                  - generic [ref=f3e269] [cursor=pointer]:
+                    - generic [ref=f3e270]: Vistadome 31
+                    - generic [ref=f3e272]: USD 120.00
+              - generic [ref=f3e275]:
+                - generic [ref=f3e276]:
+                  - generic [ref=f3e277]:
+                    - generic [ref=f3e278]:
+                      - generic [ref=f3e279]: 06:40
+                      - generic [ref=f3e280]:
+                        - generic [ref=f3e281]: Station
+                        - generic [ref=f3e284]: Poroy
+                    - generic [ref=f3e285]: 3 hr. 14 min
+                    - generic [ref=f3e288]:
+                      - generic [ref=f3e289]: 09:54
+                      - generic [ref=f3e291]:
+                        - generic [ref=f3e292]: Station
+                        - generic [ref=f3e295]: Machu Picchu
+                  - generic [ref=f3e296]: Train
+                - generic [ref=f3e299]:
+                  - generic [ref=f3e302] [cursor=pointer]:
+                    - generic [ref=f3e303]: Expedition 33
+                    - generic [ref=f3e305]: USD 99.00
+                  - generic [ref=f3e310] [cursor=pointer]:
+                    - generic [ref=f3e311]: Vistadome Observatory 33
+                    - generic [ref=f3e313]: USD 170.00
+              - generic [ref=f3e316]:
+                - generic [ref=f3e317]:
+                  - generic [ref=f3e318]:
+                    - generic [ref=f3e319]:
+                      - generic [ref=f3e320]: 07:30
+                      - generic [ref=f3e321]:
+                        - generic [ref=f3e322]: Station
+                        - generic [ref=f3e325]: San Pedro
+                    - generic [ref=f3e326]: 4 hr. 41 min
+                    - generic [ref=f3e329]:
+                      - generic [ref=f3e330]: 12:11
+                      - generic [ref=f3e332]:
+                        - generic [ref=f3e333]: Station
+                        - generic [ref=f3e336]: Machu Picchu
+                  - generic [ref=f3e337]: Train
+                - generic [ref=f3e340]:
+                  - generic [ref=f3e343] [cursor=pointer]:
+                    - generic [ref=f3e344]: Expedition 203
+                    - generic [ref=f3e346]: USD 99.00
+                  - generic [ref=f3e351] [cursor=pointer]:
+                    - generic [ref=f3e352]: Vistadome Observatory 203
+                    - generic [ref=f3e354]: USD 170.00
+              - generic [ref=f3e357]:
+                - generic [ref=f3e358]:
+                  - generic [ref=f3e359]:
+                    - generic [ref=f3e360]:
+                      - generic [ref=f3e361]: 07:35
+                      - generic [ref=f3e362]:
+                        - generic [ref=f3e363]: Station
+                        - generic [ref=f3e366]: Poroy
+                    - generic [ref=f3e367]: 3 hr. 17 min
+                    - generic [ref=f3e370]:
+                      - generic [ref=f3e371]: 10:52
+                      - generic [ref=f3e373]:
+                        - generic [ref=f3e374]: Station
+                        - generic [ref=f3e377]: Machu Picchu
+                  - generic [ref=f3e378]: Train
+                - generic [ref=f3e381]:
+                  - generic [ref=f3e384] [cursor=pointer]:
+                    - generic [ref=f3e385]: Expedition 31
+                    - generic [ref=f3e387]: USD 99.00
+                  - generic [ref=f3e392] [cursor=pointer]:
+                    - generic [ref=f3e393]: Vistadome 31
+                    - generic [ref=f3e395]: USD 120.00
+              - generic [ref=f3e398]:
+                - generic [ref=f3e399]:
+                  - generic [ref=f3e400]:
+                    - generic [ref=f3e401]:
+                      - generic [ref=f3e402]: 08:25
+                      - generic [ref=f3e403]:
+                        - generic [ref=f3e404]: Station
+                        - generic [ref=f3e407]: Poroy
+                    - generic [ref=f3e408]: 3 hr. 46 min
+                    - generic [ref=f3e411]:
+                      - generic [ref=f3e412]: 12:11
+                      - generic [ref=f3e414]:
+                        - generic [ref=f3e415]: Station
+                        - generic [ref=f3e418]: Machu Picchu
+                  - generic [ref=f3e419]: Train
+                - generic [ref=f3e422]:
+                  - generic [ref=f3e425] [cursor=pointer]:
+                    - generic [ref=f3e426]: Expedition 203
+                    - generic [ref=f3e428]: USD 99.00
+                  - generic [ref=f3e433] [cursor=pointer]:
+                    - generic [ref=f3e434]: Vistadome Observatory 203
+                    - generic [ref=f3e436]: USD 170.00
+              - generic [ref=f3e439]:
+                - generic [ref=f3e440]:
+                  - generic [ref=f3e441]:
+                    - generic [ref=f3e442]:
+                      - generic [ref=f3e443]: 09:05
+                      - generic [ref=f3e444]:
+                        - generic [ref=f3e445]: Station
+                        - generic [ref=f3e448]: Poroy
+                    - generic [ref=f3e449]: 3 hr. 19 min
+                    - generic [ref=f3e452]:
+                      - generic [ref=f3e453]: 12:24
+                      - generic [ref=f3e455]:
+                        - generic [ref=f3e456]: Station
+                        - generic [ref=f3e459]: Machu Picchu
+                  - generic [ref=f3e460]: Train
+                - generic [ref=f3e466] [cursor=pointer]:
+                  - generic [ref=f3e467]: Hiram Bingham 11
+                  - generic [ref=f3e469]: USD 600.00
+              - generic [ref=f3e473]:
+                - generic [ref=f3e474]:
+                  - generic [ref=f3e475]:
+                    - generic [ref=f3e476]:
+                      - generic [ref=f3e477]: 10:30
+                      - generic [ref=f3e478]:
+                        - generic [ref=f3e479]: Station
+                        - generic [ref=f3e482]: Wanchaq
+                    - generic [ref=f3e483]: 3 hr. 55 min
+                    - generic [ref=f3e486]:
+                      - generic [ref=f3e487]: 14:25
+                      - generic [ref=f3e489]:
+                        - generic [ref=f3e490]: Station
+                        - generic [ref=f3e493]: Machu Picchu
+                  - generic [ref=f3e494]: Bus + Train
+                - generic [ref=f3e497]:
+                  - generic [ref=f3e500] [cursor=pointer]:
+                    - generic [ref=f3e501]: Expedition 73P
+                    - generic [ref=f3e503]: USD 89.00
+                  - generic [ref=f3e508] [cursor=pointer]:
+                    - generic [ref=f3e509]: Vistadome 73P
+                    - generic [ref=f3e511]: USD 100.00
+              - generic [ref=f3e514]:
+                - generic [ref=f3e515]:
+                  - generic [ref=f3e516]:
+                    - generic [ref=f3e517]:
+                      - generic [ref=f3e518]: 12:30
+                      - generic [ref=f3e519]:
+                        - generic [ref=f3e520]: Station
+                        - generic [ref=f3e523]: Wanchaq
+                    - generic [ref=f3e524]: 4 hr. 32 min
+                    - generic [ref=f3e527]:
+                      - generic [ref=f3e528]: 17:02
+                      - generic [ref=f3e530]:
+                        - generic [ref=f3e531]: Station
+                        - generic [ref=f3e534]: Machu Picchu
+                  - generic [ref=f3e535]: Bus + Train
+                - generic [ref=f3e541] [cursor=pointer]:
+                  - generic [ref=f3e542]: Vistadome Observatory 603
+                  - generic [ref=f3e544]: USD 170.00
+              - generic [ref=f3e548]:
+                - generic [ref=f3e549]:
+                  - generic [ref=f3e550]:
+                    - generic [ref=f3e551]:
+                      - generic [ref=f3e552]: 16:30
+                      - generic [ref=f3e553]:
+                        - generic [ref=f3e554]: Station
+                        - generic [ref=f3e557]: Wanchaq
+                    - generic [ref=f3e558]: 4 hr. 15 min
+                    - generic [ref=f3e561]:
+                      - generic [ref=f3e562]: 20:45
+                      - generic [ref=f3e564]:
+                        - generic [ref=f3e565]: Station
+                        - generic [ref=f3e568]: Machu Picchu
+                  - generic [ref=f3e569]: Bus + Train
+                - generic [ref=f3e575] [cursor=pointer]:
+                  - generic [ref=f3e576]: Expedition 75
+                  - generic [ref=f3e578]: USD 89.00
+            - generic [ref=f3e584]:
+              - generic [ref=f3e585]:
+                - generic [ref=f3e586]: © ALL RIGHTS RESERVED
+                - generic [ref=f3e587]:
+                  - text: Perurail S.A.
+                  - generic [ref=f3e588]: "- Av. Armendáriz No. 480, Apt. 601, Miraflores, Lima, Peru"
+              - generic [ref=f3e589]:
+                - generic [ref=f3e590] [cursor=pointer]: Terms and Conditions
+                - link "Privacy Policy" [ref=f3e592]:
+                  - /url: https://www.belmond.com/privacy-policy
+      - text: 
+  - button "Open feedback survey" [ref=f3e593] [cursor=pointer]:
+    - iframe [aria-hidden] [ref=f3e594]:
+      - generic [ref=f4e3] [cursor=pointer]:
+        - generic [ref=f4e4]: 
+        - generic [ref=f4e6]: Feedback
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | 
+  3  | test.describe('PeruRail — JavaScript errors', () => {
+  4  | 
+  5  |   test('PR-018 the search flow throws no JavaScript errors', async ({ page }) => {
+  6  |     test.fail(true, 'Known defect: pressing "-" on a passenger counter at its minimum throws "E.toFixed is not a function"');
+  7  | 
+  8  |     // Collect every error the page's own code throws and does not handle
+  9  |     const errors: string[] = [];
+  10 |     page.on('pageerror', error => errors.push(error.message));
+  11 | 
+  12 |     await test.step('Load the search page', async () => {
+  13 |       await page.goto('/?tipoIdioma=1');
+  14 |       await expect(page.getByText(/\d+ adult/)).toBeVisible();
+  15 |     });
+  16 | 
+  17 |     await test.step('Lower the adults to the minimum and press "-" once more', async () => {
+  18 |       await page.locator('#detalleNroPasajeros').click();
+  19 |       const lessAdults = page.locator('.bootstrap-touchspin', { has: page.locator('#Filtros_Adultos_Total') }).locator('.bootstrap-touchspin-down');
+  20 |       await lessAdults.click();
+  21 |       await lessAdults.click();
+  22 |       await expect(page.locator('#Filtros_Adultos_Total')).toHaveValue('1');
+  23 |     });
+  24 | 
+  25 |     await test.step('Search a one-way trip and wait for the trains', async () => {
+  26 |       await page.getByText('One Way', { exact: true }).click();
+  27 |       await page.locator('#btnSiguiente').click();
+  28 |       await expect(page.locator('.row-desktop-trenes').first()).toBeVisible();
+  29 |     });
+  30 | 
+  31 |     await test.step('Verify no JavaScript errors were thrown', async () => {
+> 32 |       expect(errors).toEqual([]);
+     |                      ^ Error: expect(received).toEqual(expected) // deep equality
+  33 |     });
+  34 |   });
+  35 | 
+  36 | });
+```
