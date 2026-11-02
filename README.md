@@ -100,8 +100,9 @@ The tests themselves do not need it.
 
 ## CI/CD
 
-GitHub Actions runs the suite on every push and pull request, runs the AI failure triage
-and publishes both reports to GitHub Pages.
+GitHub Actions runs the smoke tests on every push and pull request, and the full suite on demand.
+Each run ends with the AI failure triage. The full suite publishes both reports to GitHub Pages.
+Runs never overlap, to keep the traffic to PeruRail low.
 
 ## Limitations
 

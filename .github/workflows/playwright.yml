@@ -1,9 +1,19 @@
 name: CI — Playwright E2E Framework
 on:
+  # Every push and pull request runs only the smoke tests: a quick check that keeps our traffic to PeruRail low
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  # The full suite runs on demand from the Actions tab. To also run it every day at 06:00 in Peru,
+  # remove the # from the two schedule lines below
+  # schedule:
+  #   - cron: '0 11 * * *'
+  workflow_dispatch:
+# Never run two suites against PeruRail at the same time
+concurrency:
+  group: perurail
+  cancel-in-progress: false
 jobs:
   test:
     timeout-minutes: 60
@@ -16,11 +26,13 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      run: npx playwright test
+      run: npx playwright install --with-deps firefox webkit
+    - name: Run smoke tests
+      if: github.event_name == 'push' || github.event_name == 'pull_request'
+      run: npm run test:smoke
+    - name: Run full suite
+      if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      run: npm test
     - name: AI failure triage
       if: always()
       env:
@@ -36,8 +48,9 @@ jobs:
         mkdir -p gh-pages/allure
         cp -r playwright-report/. gh-pages/playwright/
         cp -r allure-report/. gh-pages/allure/
+    # Only the full suite is published, so the live reports always show every test
     - name: Deploy to GitHub Pages
-      if: always()
+      if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
